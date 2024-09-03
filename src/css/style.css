@@ -1,0 +1,12 @@
+/* import styles de base Tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* import des feuilles de style */
+@import './base.scss'; 
+
+
+body {
+    font-family: "Source Sans 3", sans-serif;
+}
