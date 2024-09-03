@@ -1,3 +1,9 @@
+<script type="module">
+    import { passwordStrength } from './../../src/js/password.js';
+
+    window.passwordStrength = passwordStrength;
+</script>
+
 <div class="w-full m-3 text-gray-800">
     <div class="flex flex-row justify-between">
         <h1 class="text-4xl font-semibold">Ajouter un utilisateur</h1>
@@ -22,6 +28,11 @@
             <input type="text" name="mail" id="mail" class="w-full border border-gray-300 rounded-md p-2" placeholder="Adresse e-mail">
             <p class="text-sm text-gray-500">Entrez une adresse valide</p>
         </div>
+        <div class="flex flex-col gap-2" x-data="{ password: '', strength: 'insuffisant' }">
+            <label for="mail">Mot de passe <span class="text-red-500">*</span></label>
+            <input type="password" name="mdp" id="mdp" x-model="password" @input="strength = window.passwordStrength(password)" class="w-full border border-gray-300 rounded-md p-2" placeholder="Mot de passe" required> 
+            <p class="text-sm text-gray-500">Votre mot de passe est <span x-text="strength"></span></p>
+        </div>
         <div class="flex flex-col gap-2">
             <label for="date">Date de naissance</label>
             <input type="text" name="date" id="date" class="w-full border border-gray-300 rounded-md p-2" placeholder="Date de naissance">
@@ -42,3 +53,15 @@
         </div>
     </form>
 </div>
+
+<script type="module">
+import { passwordStrength } from './../../src/js/password.js';
+
+window.onload = function() {
+    document.getElementById('mdp').addEventListener('input', function() {
+        let password = document.getElementById('mdp').value;
+        let strength = passwordStrength(password);
+        console.log(strength);
+    })
+}
+</script>
