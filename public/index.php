@@ -1,3 +1,7 @@
+<?php 
+    $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -80,7 +84,7 @@
             x-transition:leave-end="-translate-x-full">
             <ul>
                 <li class="relative">
-                    <a href="#" class="active before:absolute before:left-0 before:w-1 before:h-full before:bg-orange-500 flex flex-row gap-3 text-white items-center px-3 py-2 bg-gray-900 transition-all">
+                    <a href="/" class="<?php if($page == "dashboard"){ echo 'active'; } ?> flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
                             <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.39.39 0 0 0-.029-.518z"/>
                             <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.95 11.95 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0"/>
@@ -88,16 +92,16 @@
                         Tableau de bord
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
+                <li class="relative">
+                    <a href="#" class="<?php if($page == "pages"){ echo 'active'; } ?> flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
                             <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2z"/>
                         </svg>
                         Pages
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
+                <li class="relative">
+                    <a href="#" class="<?php if($page == "articles"){ echo 'active'; } ?> flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
                             <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z"/>
                             <path d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z"/>
@@ -105,16 +109,16 @@
                         Articles
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
+                <li class="relative">
+                    <a href="?page=users" class="<?php if($page == "users"){ echo 'active'; } ?> flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                         </svg>
                         Utilisateurs
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
+                <li class="relative">
+                    <a href="#" class="<?php if($page == "params"){ echo 'active'; } ?> flex flex-row gap-3 text-white items-center px-3 py-2 hover:bg-gray-900 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
                             <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
                         </svg>
@@ -124,72 +128,15 @@
             </ul>
         </aside>
         <section class="flex flex-col md:flex-row pt-5 w-full mb-5">
-            <div class="flex flex-col gap-2 w-full">
-                <article class="border border-collapse rounded-md border-gray-400 m-3 text-gray-800 h-fit overflow-hidden">
-                    <header class="flex flex-row items-center justify-between py-2 px-4 bg-gray-200 border-b border-gray-400">
-                        <h2 class="font-semibold text-xl">Pages récentes</h2>
-                        <button class="bg-pink-700 text-white px-2 py-1.5 rounded-md flex flex-row gap-1 items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                            </svg>
-                            Créer une page
-                        </button>
-                    </header>
-                    <div class="flex flex-col gap-3 p-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <a href="#" class="uppercase text-orange-500 font-bold text-sm">Voir plus</a>
-                    </div>
-                </article>
-                <article class="border border-collapse rounded-md border-gray-400 m-3 text-gray-800 h-fit overflow-hidden">
-                    <header class="flex flex-row items-center justify-between py-2 px-4 bg-gray-200 border-b border-gray-400">
-                        <h2 class="font-semibold text-xl">Inscriptions récentes</h2>
-                        <button class="bg-pink-700 text-white px-2 py-1.5 rounded-md flex flex-row gap-1 items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                            </svg>
-                            Créer un utilisateur
-                        </button>
-                    </header>
-                    <div class="flex flex-col gap-3 p-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <a href="#" class="uppercase text-orange-500 font-bold text-sm">Voir plus</a>
-                    </div>
-                </article>
-            </div>
-            <div class="flex flex-col gap-2 w-full">
-                <article class="border border-collapse rounded-md border-gray-400 m-3 text-gray-800 h-fit overflow-hidden">
-                    <header class="flex flex-row items-center justify-between py-2 px-4 bg-gray-200 border-b border-gray-400">
-                        <h2 class="font-semibold text-xl">Articles récents</h2>
-                        <button class="bg-pink-700 text-white px-2 py-1.5 rounded-md flex flex-row gap-1 items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                            </svg>
-                            Créer un article
-                        </button>
-                    </header>
-                    <div class="flex flex-col gap-3 p-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <a href="#" class="uppercase text-orange-500 font-bold text-sm">Voir plus</a>
-                    </div>
-                </article>
-                <article class="border border-collapse rounded-md border-gray-400 m-3 text-gray-800 h-fit overflow-hidden">
-                    <header class="flex flex-row items-center justify-between py-2 px-4 bg-gray-200 border-b border-gray-400">
-                        <h2 class="font-semibold text-xl">Statistiques</h2>
-                        <button class="bg-pink-700 text-white px-2 py-1.5 rounded-md flex flex-row gap-1 items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-                                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                            </svg>
-                        </button>
-                    </header>
-                    <div class="flex flex-col gap-3 p-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="#" class="uppercase text-orange-500 font-bold text-sm">Voir plus</a>
-                    </div>
-                </article>
-            </div>
+            <?php 
+                $filePath = './pages/' . $page . '.php';
+                
+                if (file_exists($filePath)) {
+                    include $filePath;
+                } else {
+                    echo "<div class='w-full text-center mt-10'>Page non trouvée.</div>";
+                }
+            ?>
         </section>
     </main>
 
