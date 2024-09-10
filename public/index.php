@@ -129,7 +129,7 @@
         </aside>
         <section class="flex flex-col md:flex-row pt-5 w-full mb-5">
             <?php 
-                $filePath = './pages/' . $page . '.php';
+                $filePath = './pages/' . $page . '.html';
                 
                 if (file_exists($filePath)) {
                     include $filePath;
